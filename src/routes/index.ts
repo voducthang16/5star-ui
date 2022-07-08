@@ -1,21 +1,24 @@
-import Home from '~/pages/Home';
 import Profile from '~/pages/Profile';
 import Login from '~/pages/Login';
 import Register from '~/pages/Register';
-
+import NotFound from '~/layouts/NotFound';
+import Home from '~/pages/Home';
+// Different Layout
 import Footer from '~/layouts/FooterLayout';
-
 interface Routes {
     path: string;
     Component: React.ComponentType;
     layout?: null | any;
 }
 
-const publicRoutes: Routes[] = [
+const privateRoutes: Routes[] = [
     {
         path: '/',
         Component: Home,
     },
+];
+
+const publicRoutes: Routes[] = [
     {
         path: '/profile',
         Component: Profile,
@@ -30,6 +33,11 @@ const publicRoutes: Routes[] = [
         Component: Register,
         layout: Footer,
     },
+    {
+        path: '*',
+        Component: NotFound,
+        layout: null,
+    },
 ];
 
-export { publicRoutes };
+export { publicRoutes, privateRoutes };
