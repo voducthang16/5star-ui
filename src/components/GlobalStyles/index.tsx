@@ -1,5 +1,4 @@
 import './GlobalStyles.scss';
-import './Flex_Grid.scss';
 interface GlobalStylesProps {
     Children: React.ComponentType;
 }
