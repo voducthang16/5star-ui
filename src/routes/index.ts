@@ -31,7 +31,7 @@ const publicRoutes: Routes[] = [
     {
         path: '/register',
         Component: Register,
-        layout: Footer,
+        layout: null,
     },
     {
         path: '*',
