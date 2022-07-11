@@ -1,5 +1,6 @@
-import { DefaultLayoutProps } from '~/layouts/DefaultLayout';
-
+interface DefaultLayoutProps {
+    Children: React.ComponentType;
+}
 function Footer({ Children }: DefaultLayoutProps) {
     return (
         <div>

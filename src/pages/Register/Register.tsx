@@ -3,7 +3,7 @@ function Register() {
     return (
         <div className="App">
             {/* Register Wrapper */}
-            <div className="grid grid-cols-5 h-screen">
+            <div className="max-w-screen-2xl 2xl:m-auto grid grid-cols-5 h-screen">
                 <div className="col-span-2 bg-neutral-300">
                     {' '}
                     {<Logo height={80} width={80} className="w-full mt-4" />}
@@ -14,20 +14,20 @@ function Register() {
                         <h4 className="text-xl mb-6">Nhanh chóng và dễ dàng</h4>
                         <div className="grid grid-cols-2 gap-4">
                             {/* Form Group */}
-                            <div className="mb-6">
-                                <input className="input-fields" type="text" placeholder="Họ" />
+                            <div className="form-group rounded-lg mb-6">
+                                <input className="input input-form" type="text" placeholder="Họ" />
                             </div>
-                            <div className="mb-6">
-                                <input className="input-fields" type="text" placeholder="Tên" />
+                            <div className="form-group rounded-lg mb-6">
+                                <input className="input input-form" type="text" placeholder="Tên" />
                             </div>
                         </div>
-                        <div className="mb-6">
-                            <input className="input-fields" type="text" placeholder="Số di động hoặc email" />
+                        <div className="form-group rounded-lg mb-6">
+                            <input className="input input-form" type="text" placeholder="Số di động hoặc email" />
                         </div>
-                        <div className="mb-6">
-                            <input className="input-fields" type="password" placeholder="Mật khẩu" />
+                        <div className="form-group rounded-lg mb-6">
+                            <input className="input input-form" type="password" placeholder="Mật khẩu" />
                         </div>
-                        <div className="mb-6">
+                        <div className="form-group rounded-lg mb-6">
                             <button className="btn btn-primary w-full">Đăng ký</button>
                         </div>
                     </div>

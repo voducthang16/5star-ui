@@ -1,14 +1,14 @@
-import Header from '../components/Header';
+import Header from '~/layouts/components/Header';
 
-export interface DefaultLayoutProps {
+interface DefaultLayoutProps {
     Children: React.ComponentType;
 }
 
 function DefaultLayout({ Children }: DefaultLayoutProps) {
     return (
-        <div className="App">
+        <div className="overflow-hidden">
             <Header />
-            <main className="main">
+            <main>
                 <Children />
             </main>
         </div>
