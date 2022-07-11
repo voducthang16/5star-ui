@@ -23,19 +23,53 @@ function Header() {
                                 alt="Avatar"
                                 className="w-12 rounded-full border border-solid border-gray-200"
                             />
-                            <h3 className="ml-4">Name</h3>
+                            <h3 className="ml-4 max-w-name truncate">Name</h3>
                         </li>
                         <li className="w-px h-6 bg-gray-300"></li>
                         <li className="flex items-center">
-                            {<HomeIcon width={30} height={30} className={'fill-primary'} />}
-                            <span className="ml-4">Trang chủ</span>
+                            <span className="icon-header">
+                                {<HomeIcon width={24} height={24} className={'fill-icon'} />}
+                            </span>
+                        </li>
+                        <li>
+                            <span className="icon-header relative">
+                                {<UsersIcon width={24} height={24} className={'fill-icon'} />}
+                                <span
+                                    className="absolute -top-1 -right-4 bg-red-500 min-w-notification 
+                                rounded-full p-1 text-xs text-white text-center"
+                                >
+                                    9
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span className="icon-header relative">
+                                {<ChatIcon width={24} height={24} className={'fill-icon'} />}
+                                <span
+                                    className="absolute -top-1 -right-4 bg-red-500 min-w-notification 
+                                rounded-full p-1 text-xs text-white text-center"
+                                >
+                                    99
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span className="icon-header relative">
+                                {<NotificationIcon width={24} height={24} className={'fill-icon'} />}
+                                <span
+                                    className="absolute -top-1 -right-4 bg-red-500 min-w-notification 
+                                rounded-full p-1 text-xs text-white text-center"
+                                >
+                                    99+
+                                </span>
+                            </span>
                         </li>
                         <li className="w-px h-6 bg-gray-300"></li>
-                        <li>{<UsersIcon width={30} height={30} className={'fill-primary'} />}</li>
-                        <li>{<ChatIcon width={30} height={30} className={'fill-primary'} />}</li>
-                        <li>{<NotificationIcon width={30} height={30} className={'fill-primary'} />}</li>
-                        <li className="w-px h-6 bg-gray-300"></li>
-                        <li>{<DownwardIcon width={30} height={30} className={'fill-primary'} />}</li>
+                        <li>
+                            <span className="icon-header">
+                                {<DownwardIcon width={24} height={24} className={'fill-icon'} />}
+                            </span>
+                        </li>
                     </ul>
                 </div>
             </div>

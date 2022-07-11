@@ -7,6 +7,13 @@ module.exports = {
                 primary: '#4D72B8',
                 secondary: '#748ACC',
                 input: '#F5F8FA', //ebf0f6
+                icon: '#050505',
+            },
+            minWidth: {
+                notification: '30px',
+            },
+            maxWidth: {
+                name: '96px',
             },
         },
     },
