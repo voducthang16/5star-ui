@@ -2,6 +2,8 @@ interface IconsProps {
     height?: number;
     width?: number;
     className?: string;
+    fillColor1?: string;
+    fillColor2?: string;
 }
 
 export const HomeIcon = ({ height, width, className }: IconsProps) => {
@@ -64,21 +66,6 @@ export const VideoCameraIcon = ({ height, width, className }: IconsProps) => {
                     />
                 </g>
             </g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
         </svg>
     );
 };
@@ -178,8 +165,8 @@ export const ChatIcon = ({ height, width, className }: IconsProps) => {
                 mix-blend-mode="normal"
                 solid-color="rgb(0,0,0)"
                 solid-opacity="1"
-                vector-effect="none"
-                paint-order="fill markers stroke"
+                vectorEffect="none"
+                paintOrder="fill markers stroke"
             />
         </svg>
     );
@@ -218,7 +205,7 @@ export const NotificationIcon = ({ height, width, className }: IconsProps) => {
     );
 };
 
-export const UsersIcon = ({ height, width, className }: IconsProps) => {
+export const UsersIcon = ({ height, width, className, fillColor1, fillColor2 }: IconsProps) => {
     return (
         <svg
             enableBackground="new 0 0 512 512"
@@ -229,23 +216,26 @@ export const UsersIcon = ({ height, width, className }: IconsProps) => {
             xmlns="http://www.w3.org/2000/svg"
         >
             <g>
-                <g>
+                <g className={fillColor1}>
                     <g>
                         <path d="m150 301c-49.626 0-90-40.374-90-90s40.374-90 90-90 90 40.374 90 90-40.374 90-90 90z" />
                     </g>
                 </g>
-                <g>
+                <g className={fillColor1}>
                     <g>
                         <path d="m300 481h-300v-30c0-82.71 67.29-150 150-150 85.978 0 150 70.236 150 150z" />
                     </g>
                 </g>
-                <g>
+                <g className={fillColor2}>
                     <g>
                         <path d="m362 211c-49.626 0-90-40.374-90-90s40.374-90 90-90 90 40.374 90 90-40.374 90-90 90z" />
                     </g>
                 </g>
             </g>
-            <path d="m362 211c-56.778 0-106.481 31.663-131.933 78.593 17.904 8.889 34.349 20.832 48.688 35.587 18.528 19.066 32.386 41.49 40.989 65.819h192.256v-30c0-82.709-67.29-149.999-150-149.999z" />
+            <path
+                className={fillColor2}
+                d="m362 211c-56.778 0-106.481 31.663-131.933 78.593 17.904 8.889 34.349 20.832 48.688 35.587 18.528 19.066 32.386 41.49 40.989 65.819h192.256v-30c0-82.709-67.29-149.999-150-149.999z"
+            />
         </svg>
     );
 };
@@ -262,6 +252,31 @@ export const DownwardIcon = ({ height, width, className }: IconsProps) => {
         >
             <g id="Arrow-13">
                 <path d="m54.9210777 20.296875c-.15625-.3701172-.5185547-.6108398-.9208984-.6108398l-44 .0004883c-.4018555 0-.7646484.2407227-.9213867.6108398-.15625.3701172-.0756836.7983398.2045898 1.0864258l22 22.6274414c.1879883.1933594.4467773.3027344.7167969.3027344s.5288086-.109375.7167969-.3027344l22-22.6279297c.2802734-.2885742.3603515-.7163086.2041015-1.0864258z" />
+            </g>
+        </svg>
+    );
+};
+
+export const SavedIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg
+            width={width}
+            height={height}
+            className={className}
+            enableBackground="new 0 0 511.958 511.958"
+            viewBox="0 0 511.958 511.958"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path d="m400.579 0h-289.2c-25.487 0-47.133 20.556-47.133 47.133v427.63c.075 33.733 41.277 49.561 64.701 25.882l110.235-110.204c8.834-9.216 24.76-9.216 33.594 0l110.235 110.204c23.434 23.688 64.631 7.836 64.701-25.882v-427.63c0-26.577-21.646-47.133-47.133-47.133z" />
+        </svg>
+    );
+};
+
+export const HistoryIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg width={width} height={height} className={className} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <g id="Ikon">
+                <path d="m30 16a14 14 0 0 1 -28 0 1 1 0 0 1 2 0 12.018 12.018 0 1 0 5.37927-10h.62073a1 1 0 0 1 0 2h-3a.99943.99943 0 0 1 -1-1v-3a1 1 0 0 1 2 0v.51392a13.99667 13.99667 0 0 1 22 11.48608zm-5 0a9 9 0 1 1 -9-9 9.00984 9.00984 0 0 1 9 9zm-5.44531 1.168-2.55469-1.70316v-4.46484a1 1 0 0 0 -2 0v5a1.00028 1.00028 0 0 0 .44531.832l3 2a1 1 0 0 0 1.10938-1.664z" />
             </g>
         </svg>
     );
