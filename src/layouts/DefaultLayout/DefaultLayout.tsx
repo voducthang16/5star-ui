@@ -8,7 +8,7 @@ function DefaultLayout({ Children }: DefaultLayoutProps) {
     return (
         <div className="overflow-hidden">
             <Header />
-            <main>
+            <main className="mt-16">
                 <Children />
             </main>
         </div>

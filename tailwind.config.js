@@ -9,6 +9,9 @@ module.exports = {
                 input: '#F5F8FA', //ebf0f6
                 icon: '#050505',
             },
+            spacing: {
+                120: '30rem',
+            },
             minWidth: {
                 notification: '30px',
             },
