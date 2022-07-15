@@ -32,7 +32,7 @@ function NewsFeed({ className }: NewsFeedProps) {
                             <div className="flex justify-between items-center pt-2">
                                 {/* Add Image, Vote, Emoji, Schedule */}
                                 <ul className="flex space-x-4">
-                                    <li className="">
+                                    <li>
                                         <AddImageIcon width={24} height={24} className="fill-primary" />
                                     </li>
                                     <li>

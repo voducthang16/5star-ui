@@ -28,4 +28,8 @@
     .icon-header {
         @apply block p-3 rounded-full bg-gray-200 hover:bg-gray-300 cursor-pointer transition-all;
     }
+
+    .overlay:hover {
+        overflow-y: overlay;
+    }
 }
