@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 import Image from '~/components/Image';
 import { UsersIcon, ChatIcon, VideoCameraIcon, HistoryIcon, SavedIcon } from '~/components/Icons';
-interface SidebarProps {
+interface SidebarLeftProps {
     className?: string;
 }
 
-function Sidebar({ className }: SidebarProps) {
+function SidebarLeft({ className }: SidebarLeftProps) {
     const scrollBar = useRef(null);
 
     useEffect(() => {
@@ -15,8 +15,8 @@ function Sidebar({ className }: SidebarProps) {
 
     return (
         <div className={className}>
-            <div ref={scrollBar} className="overflow-y-hidden hover:overflow-y-auto">
-                <ul className="text-sm pb-4 border-b border-indigo-300">
+            <div ref={scrollBar} className="overflow-y-hidden overlay">
+                <ul className="text-sm pb-4 border-b border-indigo-300 mr-3">
                     <li className="flex items-center w-full hover:bg-slate-200 p-1 transition-all rounded-lg cursor-pointer">
                         <Image
                             src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesarSidePart&accessoriesType=Round&hairColor=BrownDark&facialHairType=Blank&clotheType=Hoodie&clotheColor=Gray01&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
@@ -57,9 +57,9 @@ function Sidebar({ className }: SidebarProps) {
                     </li>
                 </ul>
                 <ul className="py-4 text-sm">
-                    <li className="pl-4 mb-2 font-semibold text-stone-600">Lối tắt của bạn</li>
+                    <li className="pl-2 mb-2 font-semibold text-stone-600">Lối tắt của bạn</li>
                     <li className="flex items-center w-full hover:bg-slate-200 p-1 transition-all rounded-lg cursor-pointer">
-                        <span className="w-10 h-10 flex items-center justify-center">
+                        <span className="w-10 h-10 flex items-center justify-center p-1">
                             <Image
                                 src="https://lienquan.garena.vn/kg/favicon/apple-icon-180x180.png"
                                 alt="Avatar"
@@ -134,4 +134,4 @@ function Sidebar({ className }: SidebarProps) {
     );
 }
 
-export default Sidebar;
+export default SidebarLeft;
