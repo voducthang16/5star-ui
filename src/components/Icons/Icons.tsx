@@ -445,3 +445,73 @@ export const CakeIcon = ({ height, width, className }: IconsProps) => {
         </svg>
     );
 };
+
+export const DotsIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg
+            width={width}
+            height={height}
+            className={className}
+            enableBackground="new 0 0 32 32"
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path id="XMLID_287_" d="m16 13c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3z" />
+            <path id="XMLID_289_" d="m6 13c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3z" />
+            <path id="XMLID_291_" d="m26 13c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3z" />
+        </svg>
+    );
+};
+
+export const DotIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg
+            width={width}
+            height={height}
+            className={className}
+            enableBackground="new 0 0 152 152"
+            viewBox="0 0 152 152"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g id="_22.full_stop">
+                <path d="m81.7 70c-1-1-2.9-1.5-5.6-1.5s-4.7.5-5.8 1.5-1.6 3.1-1.6 6.2c0 2.9.5 4.8 1.6 5.8s2.9 1.5 5.7 1.5 4.6-.5 5.7-1.5 1.6-3.1 1.6-6.1-.6-4.9-1.6-5.9z" />
+            </g>
+        </svg>
+    );
+};
+
+export const HeartIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg
+            width={width}
+            height={height}
+            className={className}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            data-name="Layer 1"
+        >
+            <path
+                d="m449.28 121.43a115.2 115.2 0 0 0 -137.89-35.75c-21.18 9.14-40.07 24.55-55.39 45-15.32-20.5-34.21-35.91-55.39-45a115.2 115.2 0 0 0 -137.89 35.75c-16.5 21.62-25.22 48.64-25.22 78.13 0 42.44 25.31 89 75.22 138.44 40.67 40.27 88.73 73.25 113.75 89.32a54.78 54.78 0 0 0 59.06 0c25-16.07 73.08-49.05 113.75-89.32 49.91-49.42 75.22-96 75.22-138.44 0-29.49-8.72-56.51-25.22-78.13z"
+                fill="#f9595f"
+            />
+        </svg>
+    );
+};
+
+export const CommentIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg width={width} height={height} className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m12 2a10 10 0 1 0 4.924 18.7l3.76 1.253a.987.987 0 0 0 .316.047 1 1 0 0 0 .948-1.316l-1.248-3.76a9.988 9.988 0 0 0 -8.7-14.924zm6.653 15.12.766 2.3-2.3-.766a.991.991 0 0 0 -.851.1 8.02 8.02 0 1 1 2.488-2.488 1 1 0 0 0 -.103.854z" />
+        </svg>
+    );
+};
+
+export const ShareIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg width={width} height={height} className={className} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <g id="share">
+                <path d="m35.274 15.838h-4.094c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5h4.095c.827 0 1.5.673 1.5 1.5v19.616c0 .827-.673 1.5-1.5 1.5h-22.549c-.827 0-1.5-.673-1.5-1.5v-19.616c0-.827.673-1.5 1.5-1.5h4.095c.829 0 1.5-.671 1.5-1.5s-.671-1.5-1.5-1.5h-4.095c-2.481 0-4.5 2.019-4.5 4.5v19.616c0 2.481 2.019 4.5 4.5 4.5h22.549c2.481 0 4.5-2.019 4.5-4.5v-19.616c-.001-2.482-2.019-4.5-4.501-4.5zm-16.867-3.028 4.143-4.143v19.748c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-19.748l4.143 4.143c.293.293.677.439 1.061.439s.768-.146 1.061-.439c.586-.585.586-1.536 0-2.121l-6.703-6.704c-.587-.586-1.536-.586-2.122 0l-6.704 6.704c-.586.585-.586 1.536 0 2.121.586.586 1.535.586 2.121 0z" />
+            </g>
+        </svg>
+    );
+};
