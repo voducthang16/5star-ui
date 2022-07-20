@@ -7,7 +7,7 @@ function Home() {
                 grid grid-cols-9"
             >
                 <SidebarLeft className="col-start-1 col-end-3 bg-transparent" />
-                <NewsFeed className="col-start-3 col-end-8 px-8 bg-transparent" />
+                <NewsFeed className="col-start-3 col-end-8 px-8 bg-transparent space-y-4" />
                 <SidebarRight className="col-start-8 col-end-10 bg-transparent" />
             </div>
         </div>
