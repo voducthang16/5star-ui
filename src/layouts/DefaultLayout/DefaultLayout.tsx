@@ -6,7 +6,7 @@ interface DefaultLayoutProps {
 
 function DefaultLayout({ Children }: DefaultLayoutProps) {
     return (
-        <div className="overflow-hidden">
+        <div>
             <Header />
             <main className="mt-16">
                 <Children />

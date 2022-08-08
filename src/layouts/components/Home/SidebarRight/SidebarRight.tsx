@@ -3,9 +3,10 @@ import { CakeIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 interface SidebarRightProps {
     className?: string;
+    style?: React.CSSProperties;
 }
 
-function SidebarRight({ className }: SidebarRightProps) {
+function SidebarRight({ className, style }: SidebarRightProps) {
     const scrollBar = useRef(null);
 
     useEffect(() => {
@@ -13,7 +14,7 @@ function SidebarRight({ className }: SidebarRightProps) {
         scrollBarElement.style.height = 'calc(100vh - 88px)';
     }, []);
     return (
-        <div className={className}>
+        <div style={style} className={className}>
             <div ref={scrollBar} className="overflow-y-hidden overlay">
                 {/* Birthday */}
                 <div className="text-sm pb-4 border-b border-indigo-300 mr-3">
@@ -33,7 +34,6 @@ function SidebarRight({ className }: SidebarRightProps) {
                     </div>
                 </div>
 
-                {/* Accept Friend */}
                 <div className="text-sm py-4 border-b border-indigo-300 mr-3">
                     <div className="flex justify-between">
                         <h3 className="pl-2 mb-2 font-semibold text-stone-600">Lời mời kết bạn</h3>
@@ -60,7 +60,6 @@ function SidebarRight({ className }: SidebarRightProps) {
                     </div>
                 </div>
 
-                {/* Contacts */}
                 <div className="text-sm py-4 border-b border-indigo-300 mr-3">
                     <div className="flex justify-between">
                         <h3 className="pl-2 mb-2 font-semibold text-stone-600">Người liên hệ</h3>
@@ -145,7 +144,6 @@ function SidebarRight({ className }: SidebarRightProps) {
                     </ul>
                 </div>
 
-                {/* Group Contacts */}
                 <div className="text-sm py-4 border-b border-indigo-300 mr-3">
                     <div className="flex justify-between">
                         <h3 className="pl-2 mb-2 font-semibold text-stone-600">Cuộc trò chuyện nhóm</h3>

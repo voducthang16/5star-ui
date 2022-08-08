@@ -4,7 +4,7 @@ import Search from '~/layouts/components/Search';
 import Image from '~/components/Image';
 function Header() {
     return (
-        <header className="bg-white shadow-md fixed top-0 right-0 left-0">
+        <header className="bg-white shadow-md fixed top-0 right-0 left-0 z-50">
             <div className="max-w-screen-2xl 2xl:m-auto xl:max-w-screen-xl xl:m-auto grid grid-cols-11 h-16">
                 <div className="col-start-1 col-end-6 flex items-center">
                     <span className="mr-2">{<Logo width={48} height={48} />}</span>
