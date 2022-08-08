@@ -3,9 +3,10 @@ import Image from '~/components/Image';
 import { UsersIcon, ChatIcon, VideoCameraIcon, HistoryIcon, SavedIcon } from '~/components/Icons';
 interface SidebarLeftProps {
     className?: string;
+    style?: React.CSSProperties;
 }
 
-function SidebarLeft({ className }: SidebarLeftProps) {
+function SidebarLeft({ className, style }: SidebarLeftProps) {
     const scrollBar = useRef(null);
 
     useEffect(() => {
@@ -14,7 +15,7 @@ function SidebarLeft({ className }: SidebarLeftProps) {
     }, []);
 
     return (
-        <div className={className}>
+        <div style={style} className={className}>
             <div ref={scrollBar} className="overflow-y-hidden overlay">
                 <ul className="text-sm pb-4 border-b border-indigo-300 mr-3">
                     <li className="flex items-center w-full hover:bg-slate-200 p-1 transition-all rounded-lg cursor-pointer">
