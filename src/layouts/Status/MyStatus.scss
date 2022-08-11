@@ -1,0 +1,16 @@
+div.textarea-emoji-control {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    &:hover {
+        cursor: pointer;
+    }
+    svg {
+        fill: #4d72b8;
+    }
+}
+
+div.ql-editor {
+    max-height: 96px;
+    overflow-y: auto;
+}
