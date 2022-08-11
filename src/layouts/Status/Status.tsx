@@ -49,7 +49,7 @@ function Status({ className }: StatusProps) {
         'emoji-shortname': true,
     };
     return (
-        <div className="w-120 m-auto">
+        <div className="w-140 m-auto">
             <div className="bg-white rounded-xl p-3">
                 <div className="flex">
                     <span>

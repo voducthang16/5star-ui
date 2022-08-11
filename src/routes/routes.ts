@@ -1,10 +1,12 @@
-import Profile from '~/pages/Profile';
-import Login from '~/pages/Login';
-import Register from '~/pages/Register';
 import NotFound from '~/layouts/NotFound';
 import Home from '~/pages/Home';
+import Login from '~/pages/Login';
+import Profile from '~/pages/Profile';
+import Register from '~/pages/Register';
 // Different Layout
-import Footer from '~/layouts/FooterLayout';
+import About from '~/layouts/components/Profile/About';
+import Friend from '~/layouts/components/Profile/Friend';
+import ProfileLayout from '~/layouts/ProfileLayout';
 interface Routes {
     path: string;
     Component: React.ComponentType;
@@ -22,6 +24,17 @@ const publicRoutes: Routes[] = [
     {
         path: '/profile',
         Component: Profile,
+        layout: ProfileLayout,
+    },
+    {
+        path: '/profile/about',
+        Component: About,
+        layout: ProfileLayout,
+    },
+    {
+        path: '/profile/friends',
+        Component: Friend,
+        layout: ProfileLayout,
     },
     {
         path: '/login',
