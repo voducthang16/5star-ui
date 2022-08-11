@@ -32,4 +32,11 @@
     .overlay:hover {
         overflow-y: overlay;
     }
+    .card {
+        @apply rounded-sm shadow-sm bg-white;
+    }
+
+    .menu-hover {
+        @apply transition duration-500 hover:text-secondary hover:cursor-pointer;
+    }
 }
