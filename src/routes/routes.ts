@@ -7,6 +7,7 @@ import Register from '~/pages/Register';
 import About from '~/layouts/components/Profile/About';
 import Friend from '~/layouts/components/Profile/Friend';
 import ProfileLayout from '~/layouts/ProfileLayout';
+import ActiveAccount from '~/pages/ActiveAccount';
 interface Routes {
     path: string;
     Component: React.ComponentType;
@@ -39,6 +40,11 @@ const publicRoutes: Routes[] = [
     {
         path: '/login',
         Component: Login,
+        layout: null,
+    },
+    {
+        path: '/active',
+        Component: ActiveAccount,
         layout: null,
     },
     {
