@@ -2,6 +2,7 @@ import { AddFriendIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 
 const HeaderThumb = () => {
+    const name = localStorage.getItem('name');
     return (
         <div>
             <div className="top-header relative">
@@ -49,7 +50,7 @@ const HeaderThumb = () => {
                         />
                     </div>
                     <div className="author-content">
-                        <h4 className="author-name font-bold text-center text-gray-600">Nguyễn Văn 5Stars</h4>
+                        <h4 className="author-name font-bold text-center text-gray-600">{name}</h4>
                     </div>
                 </div>
             </div>

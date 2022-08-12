@@ -2,7 +2,10 @@ import Logo from '~/components/Logo';
 import { HomeIcon, ChatIcon, NotificationIcon, UsersIcon, DownwardIcon } from '~/components/Icons';
 import Search from '~/layouts/components/Search';
 import Image from '~/components/Image';
+import { Link } from 'react-router-dom';
 function Header() {
+    const id = localStorage.getItem('id');
+    const name = localStorage.getItem('name');
     return (
         <header className="bg-white shadow-md fixed top-0 right-0 left-0 z-50">
             <div className="max-w-screen-2xl 2xl:m-auto xl:max-w-screen-xl xl:m-auto grid grid-cols-11 h-16">
@@ -15,20 +18,20 @@ function Header() {
                 </div>
                 <div className="col-start-7 col-end-12 flex items-center">
                     <ul className="col-start-11 col-end-13 flex items-center justify-around flex-1 text-base">
-                        <li className="flex items-center">
+                        <Link to={`/profile/${id}`} className="flex items-center">
                             <Image
                                 src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesarSidePart&accessoriesType=Round&hairColor=BrownDark&facialHairType=Blank&clotheType=Hoodie&clotheColor=Gray01&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
                                 alt="Avatar"
                                 className="w-12 rounded-full border border-solid border-gray-200"
                             />
-                            <h3 className="ml-4 max-w-name truncate">Name</h3>
-                        </li>
+                            <h3 className="ml-4 max-w-name truncate">{name}</h3>
+                        </Link>
                         <li className="w-px h-6 bg-gray-300"></li>
-                        <li className="flex items-center">
+                        <Link to={'/'} className="flex items-center">
                             <span className="icon-header">
                                 <HomeIcon width={24} height={24} className={'fill-icon'} />
                             </span>
-                        </li>
+                        </Link>
                         <li>
                             <span className="icon-header relative">
                                 <UsersIcon width={24} height={24} className={'fill-icon'} />

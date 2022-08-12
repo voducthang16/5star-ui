@@ -23,7 +23,7 @@ const privateRoutes: Routes[] = [
 
 const publicRoutes: Routes[] = [
     {
-        path: '/profile',
+        path: '/profile/:id',
         Component: Profile,
         layout: ProfileLayout,
     },

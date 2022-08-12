@@ -8,7 +8,7 @@ const signUp = (data: any) => {
 };
 
 const signIn = (data: any) => {
-    return axios.post(Config.apiUrl + url + '/sigin', data);
+    return axios.post(Config.apiUrl + url + '/sigin', data, { withCredentials: true });
 };
 
 const activeAccount = (data: any) => {

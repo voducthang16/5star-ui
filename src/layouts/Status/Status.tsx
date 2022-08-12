@@ -8,6 +8,7 @@ import quillEmoji from 'react-quill-emoji';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill-emoji/dist/quill-emoji.css';
 
+import { PostService } from '~/services';
 interface StatusProps {
     className?: string;
 }
@@ -28,11 +29,15 @@ function Status({ className }: StatusProps) {
     };
     const handleSubmit = (e: any) => {
         e.preventDefault();
+        const id = localStorage.getItem('id');
         const data = {
+            text: value,
+            userId: id,
             status: statusPost,
-            content: value,
         };
-        console.log(data);
+        PostService.post(data).then((res) => {
+            console.log(res);
+        });
     };
     Quill.register('modules/imageResize', ImageResize);
     Quill.register(
