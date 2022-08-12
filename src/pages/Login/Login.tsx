@@ -29,8 +29,11 @@ const Login = () => {
         };
 
         AuthService.signIn(dataPost).then((res) => {
-            if (res.data.msg === 'Ok') {
+            console.log(res);
+            if (res.data.status === 200) {
                 localStorage.setItem('access_token', 'abc');
+                localStorage.setItem('id', `${res.data.msg.id}`);
+                localStorage.setItem('name', `${res.data.msg.name}`);
                 Navigate('/');
             } else {
                 alert('Sai tên tài khoản hoặc mật khẩu');

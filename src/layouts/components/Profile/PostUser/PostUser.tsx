@@ -1,20 +1,40 @@
 import React from 'react';
 import { CommentIcon, DotIcon, DotsIcon, EmojiIcon, HeartIcon, PublicIcon, ShareIcon } from '~/components/Icons';
 import Status from '~/layouts/Status';
-
-const PostUser = () => {
+import { PostService } from '~/services';
+import Image from '~/components/Image';
+import { useState, useEffect } from 'react';
+interface PostUserProps {
+    id: string;
+}
+const PostUser = ({ id }: PostUserProps) => {
+    const name = localStorage.getItem('name');
+    console.log(id);
+    const [post, setPost] = useState([]);
+    useEffect(() => {
+        PostService.getUserPost(id).then((res) => {
+            console.log(res);
+            setPost(res.data);
+        });
+    }, []);
     return (
         <div className="post-user col-start-4 col-end-9 pb-10">
             <Status />
             {/* LIST POST OF USERS */}
             <div className="list-post-item mt-3">
-                {[1, 2, 3].map((item) => (
-                    <div className="w-140 m-auto text-base font-medium mt-4">
+                {post?.map((item: any, index) => (
+                    <div key={index} className="w-140 m-auto text-base font-medium mt-4">
                         <div className="bg-white rounded-xl">
                             <div className="flex p-3">
-                                <div></div>
+                                <div>
+                                    <Image
+                                        src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesarSidePart&accessoriesType=Round&hairColor=BrownDark&facialHairType=Blank&clotheType=Hoodie&clotheColor=Gray01&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
+                                        alt="Avatar"
+                                        className="w-12 rounded-full border border-solid border-gray-200"
+                                    />
+                                </div>
                                 <div className="ml-4 flex-1 flex flex-col justify-around">
-                                    <h3 className="">Full Name</h3>
+                                    <h3 className="">{name}</h3>
                                     <div className="flex items-center space-x-1 text-sm text-gray-400 font-thin">
                                         <h6>24 phút</h6>
                                         <div>
@@ -44,21 +64,10 @@ const PostUser = () => {
                                 </ul>
                                 <h4>10,134 lượt thích</h4>
                             </div>
-                            <div className="px-3 py-2 font-light text-sm space-y-2">
-                                <p>
-                                    <span className="font-medium">Full Name</span> Kylian Mbappé is the FIFA cover star
-                                    for the third year in a row 🌟
-                                </p>
-                                {/* <p>
-                               Cụ thể, ngày 6/7, Grab thông báo áp dụng phụ phí thời tiết nắng nóng gay gắt đối với nhiều
-                               thành phố, tỉnh thành tùy theo từng dịch vụ Grab thu thêm 2.000 - 5.000 đồng.
-                           </p>
-                           <p>
-                               Grab cho biết chính sách mới này được đưa ra nhằm hỗ trợ các tài xế thực hiện đơn hàng. Phụ
-                               phí sẽ áp dụng cho từng đơn hàng trong chuyến xe, đồng thời được cộng trực tiếp vào giá cước
-                               tại những thời điểm thời tiết nắng nóng gay gắt.
-                           </p> */}
-                            </div>
+                            <div
+                                dangerouslySetInnerHTML={{ __html: item.text }}
+                                className="px-3 py-2 font-light text-sm space-y-2"
+                            ></div>
                             <div className="px-3 py-2 flex items-center border-t border-x-gray-500">
                                 <span>
                                     <EmojiIcon width={24} height={24} />
