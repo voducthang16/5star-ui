@@ -12,12 +12,27 @@ interface StatusProps {
     className?: string;
 }
 
+const statusArray = [
+    { id: 0, icon: <PublicIcon className="fill-primary" width={20} height={20} />, text: 'Mọi người' },
+    { id: 1, icon: <PublicIcon className="fill-primary" width={20} height={20} />, text: 'Bạn bè' },
+    { id: 2, icon: <PublicIcon className="fill-primary" width={20} height={20} />, text: 'Chỉ mình tôi' },
+];
+
 function Status({ className }: StatusProps) {
     const [value, setValue] = useState('');
-
+    const [statusPost, setStatusPost] = useState(0);
+    const [dropdown, setDropdown] = useState(false);
+    const handleChangeStatus = (id: number) => {
+        setDropdown(!dropdown);
+        setStatusPost(id);
+    };
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log(value);
+        const data = {
+            status: statusPost,
+            content: value,
+        };
+        console.log(data);
     };
     Quill.register('modules/imageResize', ImageResize);
     Quill.register(
@@ -68,11 +83,53 @@ function Status({ className }: StatusProps) {
                             </div>
                         </div>
                         {/* public, friend */}
-                        <div className="text-sm font-medium mt-2 pb-2 border-b border-solid border-gray-100">
-                            <div className="inline-flex items-center p-1 hover:bg-slate-200 rounded-lg hover:cursor-pointer">
-                                <PublicIcon width={20} height={20} className="fill-primary" />
-                                <span className="ml-1 text-primary">Công khai</span>
+                        <div className="text-sm font-medium mt-2 pb-2 border-b border-solid border-gray-100 relative">
+                            <div
+                                onClick={() => setDropdown(!dropdown)}
+                                className="inline-flex items-center p-1 hover:bg-slate-200 rounded-lg hover:cursor-pointer"
+                            >
+                                {statusPost == 0 ? (
+                                    <>
+                                        <PublicIcon width={20} height={20} className="fill-primary" />
+                                        <span className="ml-1 text-primary">Công khai</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        {statusArray[statusPost].icon}
+                                        <span className="ml-1 text-primary">{statusArray[statusPost].text}</span>
+                                    </>
+                                )}
                             </div>
+                            {dropdown ? (
+                                <div
+                                    style={{
+                                        minHeight: '100px',
+                                        maxWidth: '130px',
+                                        boxShadow: 'rgb(0 0 0 / 12%) 0px 2px 12px',
+                                    }}
+                                    className="flex flex-col w-full rounded-lg bg-white absolute"
+                                >
+                                    <div
+                                        style={{
+                                            boxShadow: 'rgb(0 0 0 / 12%) 0px 2px 12px',
+                                        }}
+                                        className="flex flex-col items-center w-full p-2 rounded-lg bg-white"
+                                    >
+                                        {statusArray.map((item, index) => (
+                                            <div
+                                                onClick={() => handleChangeStatus(item.id)}
+                                                key={index}
+                                                className="inline-flex w-full items-center p-1 hover:bg-slate-200 rounded-lg hover:cursor-pointer"
+                                            >
+                                                {item.icon}
+                                                <span className="ml-1 text-slate-800 ">{item.text}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ) : (
+                                <></>
+                            )}
                         </div>
                         <div className="flex justify-between items-center pt-2">
                             {/* Add Image, Vote, Emoji, Schedule */}
