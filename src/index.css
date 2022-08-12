@@ -39,4 +39,8 @@
     .menu-hover {
         @apply transition duration-500 hover:text-secondary hover:cursor-pointer;
     }
+
+    .animation-ripples {
+        @apply rounded-full absolute opacity-40 z-[2] bg-secondary animate-circle_scale;
+    }
 }

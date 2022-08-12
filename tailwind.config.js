@@ -20,6 +20,15 @@ module.exports = {
             maxWidth: {
                 name: '96px',
             },
+            keyframes: {
+                circle_scale: {
+                    '0%': { transform: 'scale(1.0)' },
+                    '100%': { transform: 'scale(1.25)' },
+                },
+            },
+            animation: {
+                circle_scale: 'circle_scale 3s ease-in-out infinite alternate',
+            },
         },
     },
     plugins: [],
