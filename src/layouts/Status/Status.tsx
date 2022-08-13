@@ -36,7 +36,7 @@ function Status({ className }: StatusProps) {
             status: statusPost,
         };
         PostService.post(data).then((res) => {
-            console.log(res);
+            setValue('');
         });
     };
     Quill.register('modules/imageResize', ImageResize);

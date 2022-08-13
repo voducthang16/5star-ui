@@ -305,6 +305,7 @@ export const AddImageIcon = ({ height, width, className }: IconsProps) => {
         </svg>
     );
 };
+
 export const VoteIcon = ({ height, width, className }: IconsProps) => {
     return (
         <svg
@@ -519,7 +520,6 @@ export const ShareIcon = ({ height, width, className }: IconsProps) => {
 export const MessageIcon = ({ height, width, className }: IconsProps) => {
     return (
         <svg
-            id="Capa_1"
             enableBackground="new 0 0 512 512"
             width={width}
             height={height}
@@ -535,11 +535,11 @@ export const MessageIcon = ({ height, width, className }: IconsProps) => {
         </svg>
     );
 };
+
 export const MessageMutipleIcon = ({ height, width, className }: IconsProps) => {
     return (
         <svg
-            id="Capa_1"
-            enable-background="new 0 0 512 512"
+            enableBackground="new 0 0 512 512"
             width={width}
             height={height}
             className={className}
@@ -564,7 +564,6 @@ export const MessageMutipleIcon = ({ height, width, className }: IconsProps) => 
 export const AddFriendIcon = ({ height, width, className }: IconsProps) => {
     return (
         <svg
-            id="Layer_1"
             viewBox="0 0 32 32"
             width={width}
             height={height}
@@ -577,6 +576,7 @@ export const AddFriendIcon = ({ height, width, className }: IconsProps) => {
         </svg>
     );
 };
+
 export const MenuMoreIcon = ({ height, width, className }: IconsProps) => {
     return (
         <svg
@@ -593,6 +593,86 @@ export const MenuMoreIcon = ({ height, width, className }: IconsProps) => {
                 fill="#000"
                 fillRule="evenodd"
             />
+        </svg>
+    );
+};
+
+export const LockIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg
+            width={width}
+            height={height}
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            viewBox="0 0 491.52 491.52"
+            enableBackground="new 0 0 491.52 491.52"
+        >
+            <g>
+                <g>
+                    <path
+                        d="M399.4,203.578h-19.801h-0.005v-69.744C379.593,60.039,319.556,0,245.759,0c-73.793,0-133.832,60.039-133.832,133.835
+                    v69.744H92.122c-15.656,0-28.35,12.692-28.35,28.349v17.246v196.751v17.245c0,15.658,12.693,28.35,28.35,28.35H245.76H399.4
+                    c15.656,0,28.348-12.692,28.348-28.35v-17.245V249.174v-17.246C427.748,216.27,415.056,203.578,399.4,203.578z M275.935,406.648
+                    h-60.349l10.801-51.467c-10.101-6.428-16.848-17.652-16.848-30.512c0-20.003,16.218-36.219,36.221-36.219
+                    c20.004,0,36.219,16.216,36.219,36.219c0,12.86-6.745,24.084-16.845,30.51L275.935,406.648z M331.84,203.578h-86.08h-86.075
+                    h-0.005v-69.744c0-47.469,38.613-86.081,86.08-86.081c47.469,0,86.08,38.613,86.08,86.081V203.578z"
+                    />
+                </g>
+            </g>
+        </svg>
+    );
+};
+
+export const FriendsIcon = ({ height, width, className }: IconsProps) => {
+    return (
+        <svg
+            width={width}
+            height={height}
+            className={className}
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            viewBox="0 0 512 512"
+            enableBackground="new 0 0 512 512"
+        >
+            <g>
+                <g>
+                    <path
+                        d="M155.327,57.142c-51.531,0-93.454,44.45-93.454,99.086c0,54.636,41.923,99.086,93.454,99.086s93.455-44.45,93.455-99.086
+                    C248.782,101.592,206.859,57.142,155.327,57.142z"
+                    />
+                </g>
+            </g>
+            <g>
+                <g>
+                    <path
+                        d="M367.798,71.321c-0.211,0-0.425,0.001-0.636,0.002c-21.626,0.179-41.826,9.31-56.878,25.713
+                    c-14.788,16.113-22.829,37.37-22.644,59.854c0.186,22.484,8.577,43.605,23.628,59.473c15.17,15.991,35.265,24.773,56.651,24.773
+                    c0.215,0,0.43-0.001,0.646-0.002c21.626-0.179,41.826-9.311,56.878-25.713c14.788-16.113,22.829-37.37,22.644-59.855
+                    C447.702,108.972,411.747,71.321,367.798,71.321z"
+                    />
+                </g>
+            </g>
+            <g>
+                <g>
+                    <path
+                        d="M371.74,257.358h-7.76c-36.14,0-69.12,13.74-94.02,36.26c6.23,4.78,12.16,9.99,17.78,15.61
+                    c16.58,16.58,29.6,35.9,38.7,57.42c8.2,19.38,12.88,39.8,13.97,60.83H512v-29.87C512,320.278,449.08,257.358,371.74,257.358z"
+                    />
+                </g>
+            </g>
+            <g>
+                <g>
+                    <path
+                        d="M310.35,427.478c-2.83-45.59-25.94-85.69-60.43-111.39c-25.09-18.7-56.21-29.77-89.92-29.77h-9.34
+                    C67.45,286.319,0,353.768,0,436.978v17.88h310.65v-17.88C310.65,433.788,310.55,430.618,310.35,427.478z"
+                    />
+                </g>
+            </g>
         </svg>
     );
 };
