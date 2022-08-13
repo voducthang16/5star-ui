@@ -1,5 +1,15 @@
 import React from 'react';
-import { CommentIcon, DotIcon, DotsIcon, EmojiIcon, HeartIcon, PublicIcon, ShareIcon } from '~/components/Icons';
+import {
+    CommentIcon,
+    DotIcon,
+    DotsIcon,
+    EmojiIcon,
+    HeartIcon,
+    PublicIcon,
+    ShareIcon,
+    FriendsIcon,
+    LockIcon,
+} from '~/components/Icons';
 import Status from '~/layouts/Status';
 import { PostService } from '~/services';
 import Image from '~/components/Image';
@@ -9,14 +19,22 @@ interface PostUserProps {
 }
 const PostUser = ({ id }: PostUserProps) => {
     const name = localStorage.getItem('name');
-    console.log(id);
     const [post, setPost] = useState([]);
+    const getIcon = (id: number) => {
+        if (id === 0) {
+            return <PublicIcon width={14} height={14} className="fill-gray-400" />;
+        } else if (id === 1) {
+            return <FriendsIcon width={14} height={14} className="fill-gray-400" />;
+        } else {
+            return <LockIcon width={14} height={14} className="fill-gray-400" />;
+        }
+    };
     useEffect(() => {
         PostService.getUserPost(id).then((res) => {
             console.log(res);
             setPost(res.data);
         });
-    }, []);
+    }, [id]);
     return (
         <div className="post-user col-start-4 col-end-9 pb-10">
             <Status />
@@ -40,17 +58,18 @@ const PostUser = ({ id }: PostUserProps) => {
                                         <div>
                                             <DotIcon width={14} height={14} className="fill-gray-400" />
                                         </div>
-                                        <div>
-                                            <PublicIcon width={14} height={14} className="fill-gray-400" />
-                                        </div>
+                                        <div>{getIcon(item.status)}</div>
                                     </div>
                                 </div>
                                 <div>
                                     <DotsIcon width={24} height={24} />
                                 </div>
                             </div>
-                            <div></div>
-                            <div className="px-3 pt-2">
+                            <div
+                                dangerouslySetInnerHTML={{ __html: item.text }}
+                                className="px-3 py-2 font-light text-sm space-y-2"
+                            ></div>
+                            <div className="px-3 pt-2 pb-2">
                                 <ul className="flex space-x-4">
                                     <li>
                                         <HeartIcon width={28} height={28} />
@@ -64,10 +83,6 @@ const PostUser = ({ id }: PostUserProps) => {
                                 </ul>
                                 <h4>10,134 lượt thích</h4>
                             </div>
-                            <div
-                                dangerouslySetInnerHTML={{ __html: item.text }}
-                                className="px-3 py-2 font-light text-sm space-y-2"
-                            ></div>
                             <div className="px-3 py-2 flex items-center border-t border-x-gray-500">
                                 <span>
                                     <EmojiIcon width={24} height={24} />
