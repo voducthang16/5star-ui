@@ -14,10 +14,15 @@ import Status from '~/layouts/Status';
 import { PostService } from '~/services';
 import Image from '~/components/Image';
 import { useState, useEffect } from 'react';
+import { getUserPost } from '~/slice/postSlice';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 interface PostUserProps {
     id: string;
 }
 const PostUser = ({ id }: PostUserProps) => {
+    const dispatch = useDispatch();
+
     const name = localStorage.getItem('name');
     const [post, setPost] = useState([]);
     const getIcon = (id: number) => {
@@ -29,18 +34,24 @@ const PostUser = ({ id }: PostUserProps) => {
             return <LockIcon width={14} height={14} className="fill-gray-400" />;
         }
     };
-    useEffect(() => {
+
+    const initDataUser = (id) => {
         PostService.getUserPost(id).then((res) => {
-            console.log(res);
             setPost(res.data);
+            let data = res.data.sort((a: any, b: any) => a.createdAt - b.createdAt);
+            console.log(data);
         });
+    };
+
+    useEffect(() => {
+        initDataUser(id);
     }, [id]);
     return (
         <div className="post-user col-start-4 col-end-9 pb-10">
-            <Status />
+            <Status getDataPost={initDataUser} />
             {/* LIST POST OF USERS */}
             <div className="list-post-item mt-3">
-                {post?.map((item: any, index) => (
+                {post.map((item: any, index) => (
                     <div key={index} className="w-140 m-auto text-base font-medium mt-4">
                         <div className="bg-white rounded-xl">
                             <div className="flex p-3">

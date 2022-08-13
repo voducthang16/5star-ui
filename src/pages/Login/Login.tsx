@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '~/components/Logo';
 import { AuthService } from '~/services';
+import { signIn } from '~/slice/authSlice';
 import { getDeviceNameType } from '~/utils/deviceName';
 
 const initDataForm = {
@@ -11,6 +13,7 @@ const initDataForm = {
 
 const Login = () => {
     const Navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [formValue, setFormValue] = useState(initDataForm);
 
@@ -29,8 +32,12 @@ const Login = () => {
         };
 
         AuthService.signIn(dataPost).then((res) => {
-            console.log(res);
             if (res.data.status === 200) {
+                let reduxSignin = {
+                    id: res.data.msg.id,
+                    name: res.data.msg.name,
+                };
+                // dispatch(signIn(reduxSignin));
                 localStorage.setItem('access_token', 'abc');
                 localStorage.setItem('id', `${res.data.msg.id}`);
                 localStorage.setItem('name', `${res.data.msg.name}`);
