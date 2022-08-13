@@ -29,8 +29,9 @@ const Login = () => {
         };
 
         AuthService.signIn(dataPost).then((res) => {
-            console.log(res);
             if (res.data.status === 200) {
+                console.log(res);
+
                 localStorage.setItem('access_token', 'abc');
                 localStorage.setItem('id', `${res.data.msg.id}`);
                 localStorage.setItem('name', `${res.data.msg.name}`);

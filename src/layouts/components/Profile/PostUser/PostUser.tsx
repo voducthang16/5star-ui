@@ -14,10 +14,15 @@ import Status from '~/layouts/Status';
 import { PostService } from '~/services';
 import Image from '~/components/Image';
 import { useState, useEffect } from 'react';
+import { getUserPost } from '~/slice/postSlice';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 interface PostUserProps {
     id: string;
 }
 const PostUser = ({ id }: PostUserProps) => {
+    const dispatch = useDispatch<any>();
+
     const name = localStorage.getItem('name');
     const [post, setPost] = useState([]);
     const getIcon = (id: number) => {
@@ -30,10 +35,12 @@ const PostUser = ({ id }: PostUserProps) => {
         }
     };
     useEffect(() => {
-        PostService.getUserPost(id).then((res) => {
-            console.log(res);
-            setPost(res.data);
-        });
+        const initDataUser = async () => {
+            const actionResult: any = await dispatch(getUserPost());
+            const list = unwrapResult(actionResult);
+            setPost(list);
+        };
+        initDataUser();
     }, [id]);
     return (
         <div className="post-user col-start-4 col-end-9 pb-10">

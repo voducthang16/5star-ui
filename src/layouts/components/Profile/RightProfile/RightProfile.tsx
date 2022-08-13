@@ -12,7 +12,7 @@ const RightProfile = () => {
                 <div className="profile-content p-[20px]">
                     <ul className="personal-info-list text-gray-500 overflow-hidden">
                         {[1, 2, 3, 4, 5, 6].map((items) => (
-                            <li className="w-1/3 p-2 overflow-hidden float-left">
+                            <li className="w-1/3 p-2 overflow-hidden float-left" key={items}>
                                 <Link to="">
                                     <Image alt="Image" src="" className="w-full rounded-md block"></Image>
                                 </Link>
