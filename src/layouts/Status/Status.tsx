@@ -1,41 +1,46 @@
+import ImageResize from 'quill-image-resize-module-react';
 import { useState } from 'react';
-import { AddImageIcon, EmojiIcon, PublicIcon, ScheduleIcon, VoteIcon } from '~/components/Icons';
+import ReactQuill, { Quill } from 'react-quill';
+import quillEmoji from 'react-quill-emoji';
+import 'react-quill-emoji/dist/quill-emoji.css';
+import 'react-quill/dist/quill.snow.css';
+import { AddImageIcon, EmojiIcon, FriendsIcon, LockIcon, PublicIcon, ScheduleIcon, VoteIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import './MyStatus.scss';
-import ReactQuill, { Quill } from 'react-quill';
-import ImageResize from 'quill-image-resize-module-react';
-import quillEmoji from 'react-quill-emoji';
-import 'react-quill/dist/quill.snow.css';
-import 'react-quill-emoji/dist/quill-emoji.css';
 
 import { PostService } from '~/services';
 interface StatusProps {
     className?: string;
+    getDataPost?: any;
 }
 
 const statusArray = [
     { id: 0, icon: <PublicIcon className="fill-primary" width={20} height={20} />, text: 'Mọi người' },
-    { id: 1, icon: <PublicIcon className="fill-primary" width={20} height={20} />, text: 'Bạn bè' },
-    { id: 2, icon: <PublicIcon className="fill-primary" width={20} height={20} />, text: 'Chỉ mình tôi' },
+    { id: 1, icon: <FriendsIcon className="fill-primary" width={20} height={20} />, text: 'Bạn bè' },
+    { id: 2, icon: <LockIcon className="fill-primary" width={20} height={20} />, text: 'Chỉ mình tôi' },
 ];
 
-function Status({ className }: StatusProps) {
+function Status({ className, getDataPost }: StatusProps) {
     const [value, setValue] = useState('');
     const [statusPost, setStatusPost] = useState(0);
     const [dropdown, setDropdown] = useState(false);
+
+    const id = localStorage.getItem('id');
+
     const handleChangeStatus = (id: number) => {
         setDropdown(!dropdown);
         setStatusPost(id);
     };
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        const id = localStorage.getItem('id');
         const data = {
             text: value,
             userId: id,
             status: statusPost,
         };
         PostService.post(data).then((res) => {
+            console.log(res);
+            getDataPost(id);
             setValue('');
         });
     };
@@ -69,7 +74,7 @@ function Status({ className }: StatusProps) {
         'emoji-shortname': true,
     };
     return (
-        <div className="w-140 m-auto">
+        <div className="w-120 m-auto">
             <div className="bg-white rounded-xl p-3">
                 <div className="flex">
                     <span>

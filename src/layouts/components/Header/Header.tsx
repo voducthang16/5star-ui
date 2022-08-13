@@ -1,11 +1,12 @@
-import Logo from '~/components/Logo';
-import { HomeIcon, ChatIcon, NotificationIcon, UsersIcon, DownwardIcon } from '~/components/Icons';
-import Search from '~/layouts/components/Search';
-import Image from '~/components/Image';
 import { Link } from 'react-router-dom';
+import { ChatIcon, DownwardIcon, HomeIcon, NotificationIcon, UsersIcon } from '~/components/Icons';
+import Image from '~/components/Image';
+import Logo from '~/components/Logo';
+import Search from '~/layouts/components/Search';
 function Header() {
     const id = localStorage.getItem('id');
     const name = localStorage.getItem('name');
+
     return (
         <header className="bg-white shadow-md fixed top-0 right-0 left-0 z-50">
             <div className="max-w-screen-2xl 2xl:m-auto xl:max-w-screen-xl xl:m-auto grid grid-cols-11 h-16">

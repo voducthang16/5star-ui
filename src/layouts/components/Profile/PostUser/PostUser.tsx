@@ -21,7 +21,7 @@ interface PostUserProps {
     id: string;
 }
 const PostUser = ({ id }: PostUserProps) => {
-    const dispatch = useDispatch<any>();
+    const dispatch = useDispatch();
 
     const name = localStorage.getItem('name');
     const [post, setPost] = useState([]);
@@ -34,20 +34,24 @@ const PostUser = ({ id }: PostUserProps) => {
             return <LockIcon width={14} height={14} className="fill-gray-400" />;
         }
     };
+
+    const initDataUser = (id) => {
+        PostService.getUserPost(id).then((res) => {
+            setPost(res.data);
+            let data = res.data.sort((a: any, b: any) => a.createdAt - b.createdAt);
+            console.log(data);
+        });
+    };
+
     useEffect(() => {
-        const initDataUser = async () => {
-            const actionResult: any = await dispatch(getUserPost());
-            const list = unwrapResult(actionResult);
-            setPost(list);
-        };
-        initDataUser();
+        initDataUser(id);
     }, [id]);
     return (
         <div className="post-user col-start-4 col-end-9 pb-10">
-            <Status />
+            <Status getDataPost={initDataUser} />
             {/* LIST POST OF USERS */}
             <div className="list-post-item mt-3">
-                {post?.map((item: any, index) => (
+                {post.map((item: any, index) => (
                     <div key={index} className="w-140 m-auto text-base font-medium mt-4">
                         <div className="bg-white rounded-xl">
                             <div className="flex p-3">
