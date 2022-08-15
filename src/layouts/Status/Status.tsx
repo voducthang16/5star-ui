@@ -1,5 +1,5 @@
 import ImageResize from 'quill-image-resize-module-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import quillEmoji from 'react-quill-emoji';
 import 'react-quill-emoji/dist/quill-emoji.css';
@@ -31,6 +31,21 @@ function Status({ className, getDataPost }: StatusProps) {
         setDropdown(!dropdown);
         setStatusPost(id);
     };
+
+    const turnOffPostStatus = (e: any) => {
+        setDropdown(!dropdown);
+        const element = e.target;
+        window.addEventListener('click', (e: any) => {
+            if (e.target !== element && dropdown) {
+                setDropdown(!dropdown);
+            }
+        });
+    };
+
+    useEffect(() => {
+        // turnOffPostStatus();
+    }, []);
+
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const data = {
@@ -95,18 +110,18 @@ function Status({ className, getDataPost }: StatusProps) {
                         {/* public, friend */}
                         <div className="text-sm font-medium mt-2 pb-2 border-b border-solid border-gray-100 relative">
                             <div
-                                onClick={() => setDropdown(!dropdown)}
+                                onClick={turnOffPostStatus}
                                 className="inline-flex items-center p-1 hover:bg-slate-200 rounded-lg hover:cursor-pointer"
                             >
                                 {statusPost == 0 ? (
                                     <>
                                         <PublicIcon width={20} height={20} className="fill-primary" />
-                                        <span className="ml-1 text-primary">Công khai</span>
+                                        <span className="ml-1 text-primary status">Công khai</span>
                                     </>
                                 ) : (
                                     <>
                                         {statusArray[statusPost].icon}
-                                        <span className="ml-1 text-primary">{statusArray[statusPost].text}</span>
+                                        <span className="ml-1 text-primary status">{statusArray[statusPost].text}</span>
                                     </>
                                 )}
                             </div>
