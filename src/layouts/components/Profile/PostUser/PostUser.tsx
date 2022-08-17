@@ -17,6 +17,8 @@ import { useState, useEffect } from 'react';
 import { getUserPost } from '~/slice/postSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
+import Moment from 'react-moment';
+import 'moment/locale/vi';
 interface PostUserProps {
     id: string;
 }
@@ -65,7 +67,11 @@ const PostUser = ({ id }: PostUserProps) => {
                                 <div className="ml-4 flex-1 flex flex-col justify-around">
                                     <h3 className="">{name}</h3>
                                     <div className="flex items-center space-x-1 text-sm text-gray-400 font-thin">
-                                        <h6>24 phút</h6>
+                                        <h6>
+                                            <Moment interval={60000} fromNow>
+                                                {item.updatedAt}
+                                            </Moment>
+                                        </h6>
                                         <div>
                                             <DotIcon width={14} height={14} className="fill-gray-400" />
                                         </div>
